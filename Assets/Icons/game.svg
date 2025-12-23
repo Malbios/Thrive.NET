@@ -1,0 +1,91 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050914"></stop>
+      <stop offset="50%" stop-color="#081327"></stop>
+      <stop offset="100%" stop-color="#141b3a"></stop>
+    </linearGradient>
+
+    <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4ffcff" stop-opacity="0.9"></stop>
+      <stop offset="40%" stop-color="#2fd4ff" stop-opacity="0.7"></stop>
+      <stop offset="100%" stop-color="#00a5ff" stop-opacity="0"></stop>
+    </radialGradient>
+
+    <linearGradient id="linkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f0ff"></stop>
+      <stop offset="50%" stop-color="#7bffea"></stop>
+      <stop offset="100%" stop-color="#00ff99"></stop>
+    </linearGradient>
+
+    <linearGradient id="chipEdge" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2a375e"></stop>
+      <stop offset="100%" stop-color="#4c5d9b"></stop>
+    </linearGradient>
+  </defs>
+
+  <!-- Rounded-square “system” tile -->
+  <rect x="8" y="8" width="240" height="240" rx="48" fill="url(#bgGradient)"></rect>
+
+  <!-- Subtle inner border -->
+  <rect x="16" y="16" width="224" height="224" rx="40" fill="none" stroke="#3a4a7f" stroke-width="2" opacity="0.9"></rect>
+
+  <!-- “Chip” notches hinting at a system/rig -->
+  <path d="M64 8 v20
+       M192 8 v20
+       M64 248 v-20
+       M192 248 v-20
+       M8 96 h20
+       M8 160 h20
+       M248 96 h-20
+       M248 160 h-20" stroke="#4c5d9b" stroke-width="3" stroke-linecap="round" opacity="0.9"></path>
+
+  <!-- Core glow -->
+  <circle cx="128" cy="128" r="80" fill="url(#coreGlow)" opacity="0.75"></circle>
+
+  <!-- “Scripted path” T-shape (stylized T for Thrive) -->
+  <!-- Vertical spine -->
+  <path d="M128 60 L128 184" fill="none" stroke="url(#linkGradient)" stroke-width="8" stroke-linecap="round" stroke-dasharray="2 10"></path>
+
+  <!-- Top bar -->
+  <path d="M88 80 L168 80" fill="none" stroke="url(#linkGradient)" stroke-width="8" stroke-linecap="round" stroke-dasharray="2 10"></path>
+
+  <!-- Node ring around core (system graph) -->
+  <circle cx="128" cy="128" r="52" fill="none" stroke="#1f314f" stroke-width="4" stroke-dasharray="6 10"></circle>
+
+  <!-- Links from core to outer nodes -->
+  <g fill="none" stroke="url(#linkGradient)" stroke-width="5" stroke-linecap="round">
+    <line x1="128" y1="128" x2="70" y2="108"></line>
+    <line x1="128" y1="128" x2="186" y2="108"></line>
+    <line x1="128" y1="128" x2="96" y2="176"></line>
+    <line x1="128" y1="128" x2="160" y2="176"></line>
+  </g>
+
+  <!-- Core node (your avatar) -->
+  <circle cx="128" cy="128" r="16" fill="#050914" stroke="#7bffea" stroke-width="5"></circle>
+
+  <!-- Outer data nodes -->
+  <g>
+    <circle cx="70" cy="108" r="9" fill="#050914" stroke="#00f0ff" stroke-width="3"></circle>
+    <circle cx="186" cy="108" r="9" fill="#050914" stroke="#00ffb3" stroke-width="3"></circle>
+    <circle cx="96" cy="176" r="9" fill="#050914" stroke="#7bffea" stroke-width="3"></circle>
+    <circle cx="160" cy="176" r="9" fill="#050914" stroke="#00ff99" stroke-width="3"></circle>
+  </g>
+
+  <!-- Moving packet “pings” (a bit of life) -->
+  <g opacity="0.9">
+    <circle cx="109" cy="119" r="3" fill="#7bffea"></circle>
+    <circle cx="147" cy="137" r="3" fill="#7bffea"></circle>
+    <circle cx="151" cy="176" r="3" fill="#7bffea"></circle>
+    <circle cx="81" cy="116" r="3" fill="#7bffea"></circle>
+  </g>
+
+  <!-- Subtle top highlight -->
+  <path d="M40 54
+       Q128 8 216 54" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="4" stroke-linecap="round"></path>
+
+  <!-- Subtle bottom shadow arc -->
+  <path d="M40 202
+       Q128 244 216 202" fill="none" stroke="rgba(0,0,0,0.55)" stroke-width="10" stroke-linecap="round" opacity="0.65"></path>
+</svg>
