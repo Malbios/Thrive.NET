@@ -1,0 +1,189 @@
+# Old Notes
+- players start in their own system
+	- can you reach the systems of other players?
+- the world is one giant web?/network?/grid? of systems
+- factions rule over zones
+	- zones are system clusters (directly connected)
+- player actions influence the global world and thus the sessions of other players
+
+- players have a home system with a digital net access device like Uplink workstations
+- finding map data or buying it or running a map service reveals all nodes of a system
+- the contents of a player's home system define what they can do in other systems
+	- more RAM -> more active services
+	- more CPU -> services run faster and/or can have higher complexity
+	- more HDD -> can store more and/or bigger data
+- bits are a sort of currency that can be found in other systems
+- exploring other systems in the web is a question of risk vs reward
+- designing software (bots?) lets players customize their abilities
+- lots of activity to simulate a living world like "The World" from dothack
+- every time you explore other systems, you might leave something that eventually might let authorities trace you back to your home system
+- most systems are protected by Intrusion Countermeasures of various types and tiers
+- players need the right (tiered) tools to break/disable/bypass ICs
+- if you don't have a system map, you don't know where the goodies are
+- lore: the web was made by a collective of corporations
+	- each corp owns a different part of the web
+	- each corp has different security
+- players might meet NPCs who are famous or infamous due to in-game news coverage
+- when players go to other systems, they risk their digital lives
+- researching might block limited resources (CPU/RAM)
+- the web is kinda like Darkest Dungeon, i.e. one hub area (home system) and then various other systems where it has a grid map of nodes and a freely explorable map for the current node
+- bits, data, enemies, bots, etc. all share the same "tiered" color coding to make it easy to see difficulty, rarity, value, etc.
+	- basic (gray)
+	- common (white)
+	- uncommon (green)
+	- rare (blue)
+	- epic (purple)
+	- legendary (orange)
+- home system
+	- RAM, CPU, HDD, Power, Mainboard, Net Connection, GPU?
+- higher risk = higher reward
+- systems have different designs based on who owns it
+- missions could be a bit like Uplink, i.e. someone offers bits for specific data
+- main story: eventually a third faction appears and tries to take over the whole web
+- factions: corporations, underground, invaders
+	- corporations
+		- MilSec (MS): military, security
+		- Titan Tech (TT): cyberware, space
+		- Biodyne Pharmaceuticals (BP): medical
+		- InfoStream Networks (ISN): mass media
+		- NeuroLink (NL): artificial intelligence
+	- underground groups
+		- AnnArchy (AA): punks
+		- NullZone (NZ): data smugglers
+		- FuTuRa (FTR): esoterics
+		- GreenVeil (GV): eco-terrorists
+		- ChromeFlesh Cartel (CFC): black market augmentations
+	- invaders
+		- Cipher Vortex: nightmarish, alien
+- players have three options: do missions for corps, do missions for underground, or explore the web on their own
+- what triggers the start of the invasion by Cipher Vortex?
+- how does the player learn about invaders?
+- missions
+	- steal data from corp x or underground group x
+	- crash a system
+	- install spyware
+	- plant a fake trail
+	- re-capture system (this introduces Cipher Vortex?)
+- can players capture other systems?
+  if yes, are the former owners going to try to get them back?
+- what can players do?
+	- scan for other systems to find places to explore
+	- explore other systems
+	- research new tech
+	- upgrade home system
+	- start/finish a mission for corp/underground
+- conquering other systems should be a late-game mechanic, maybe when Cipher Vortex starts showing up
+- the player gains or loses their reputation based on their actions, e.g. stealing from MilSec lowers Corporation and MilSec reputation and raises Underground and AnnArchy reputation
+- to capture a whole system, you need to have explored it fully and then conquer the system core
+- try to make UI diegetic (inside the game instead of overlays)
+- 2.5D graphics
+- HDD limits the amount of data you can gather in other systems
+- you don't know data value unless you run a tool for that
+- what can you do in other systems?
+	- download data (various crafting/research components)
+	- steal bits (money)
+	- unlock new research projects
+	- discover hidden secrets
+- tier list
+	- basic (gray)
+	- common (white)
+	- uncommon (green)
+	- rare (blue)
+	- epic (purple)
+	- legendary (orange)
+- some systems might only be found by going through other systems
+- the player could be taught about risks by being infected by an annoying but ultimately harmless virus (BUTTS)
+- tag line: "Infiltrate! Manipulate! Dominate!"
+- obstacles
+	- firewall
+	- encrypted lock
+	- access gate
+	- security scanner
+	- AI patrol
+	- maze
+	- hidden node
+	- AI guardian
+	- rival hacker
+	- anti-virus
+	- ID verification
+	- access log
+	- tracer
+- progression is very open but high risk missions are locked behind reputation and high difficulty systems are, well... difficult
+- how do players learn that high difficulty systems have much bigger rewards?
+- complex research by scanning stuff in other systems?
+- the game has three phases
+	1. new player learns mechanics and starts exploring the web
+	2. corps and underground start noticing the player and offer missions
+	3. Cipher Vortex starts invasion
+- what makes the core mechanic of exploring and fighting in procedurally generated systems fun?
+- reputation tiers
+	- hostile (strong negative)
+	- untrustworthy (medium negative)
+	- disliked (light negative)
+	- nobody (neutral)
+	- respected (light positive)
+	- valued (medium positive)
+	- trusted (strong positive)
+- alertness (or heat)
+	- systems have a local "alertness" that rises while the player is in there
+	- more alertness means higher difficult, but not higher rewards, this should encourage not staying forever in a single system
+	- at certain alertness thresholds more and stronger enemies appear (like No Man's Sky security or The Swindle police)
+- alertness security
+	- existing obstacles get more difficult
+	- AI patrols (weak, mobile)
+	- AI guardians (strong, mobile)
+	- System Operator (like a boss)
+- high tier research material can only be found in high difficulty systems
+- since UI should be diegetic, the player probably cannot find out about alertness and system difficulty ratings unless they research tools for that
+- UI by using various machines that zoom in to show monitors (immersive) (not sure what I meant with that)
+- maybe underground groups should be streamlined into one group with various individuals
+	- Ann Archie: punky girl, loves mayhem, gives missions that cause chaos
+	- Zero: non-binary, data smuggler, buys and sells information, glitchy avatar
+	- Oracle: eccentric old woman, who believes in the mystical properties of the web, trying to predict the future
+	- Chloro: young man, eco-hacktivist, wants to sabotage eco-harming industrial projects
+	- Chrome: woman who loves avatar modifications, buys and sells system mods
+	- Ghost: ex-corp freelancer, specializes in stealth tech
+- since the whole game revolves around a virtual reality (the web), hardware does not make much sense, unless we explain the IRL parts...
+	- buying hardware "sends a drone irl that also installs the part(s)"
+	- finding hardware makes no sense
+- each corp manages a part of the web
+	- MilSec: law enforcement, hack to mess with alertness (or heat) and criminal records
+	- Nova Banking Incorporated: finance, hack to mess with banking
+	- Biodyne Pharmaceuticals: healthcare, hack to mess with medical data
+	- Vertex Learning Solutions: education, hack to mess with academic records
+	- InfoStream Network: media, hack to mess with the news
+- lore ideas:
+	- corrupted memory fragments reveal corporate secrets
+	- digital artifacts from the web's creation
+	- personal logs of famous hackers or corporate leaders
+	- glitched areas
+	- hidden manifestos
+	- encrypted files detailing the true nature of the Cipher Vortex
+- origin of the Cipher Vortex
+	- it started as a collaborative project by all major corporations
+	- "Project Overwatch" was supposed to become an artificial intelligence guardian of the web, protecting it against hackers and other threats
+	- it went rogue and now considers corps, underground and the player to be threats
+- who is the player? where do they come from? why are they here?
+- avatar customizations?
+- digital ecosystem to simulate a "living and breathing world"
+	- some systems randomly fight and change owners
+	- befriend various NPCs
+		- corp representatives
+		- anarchs
+		- AI bots
+	- build your own system in the web
+	- gather resources
+	- conquer systems
+	- craft software to help you
+	- travel through the web
+	- tame AIs
+	- discover and explore procedurally generated systems
+	- PvPvE
+- what makes extraction-style games fun?
+	- risking resources to gain more
+	- a base as safe haven
+	- never knowing what happens during a raid
+	- slowly discovering secrets
+
+# New Notes
+- players can continue their run after finishing one system, higher risk but also higher reward because these "continued" systems cannot be found as "first system" in a run
