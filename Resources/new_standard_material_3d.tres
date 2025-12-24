@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://demv8r48efome"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dveeb"]
+load_path = "res://.godot/imported/prototypebits_texture.png-2c30325baefe7f5606b56b9e797cfa6a.s3tc.ctex"
+
+[resource]
+resource_name = "prototype_texture"
+albedo_texture = SubResource("CompressedTexture2D_dveeb")
+metallic_specular = 0.2
+roughness = 0.4
