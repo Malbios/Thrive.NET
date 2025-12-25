@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dp4wwr2f0amy2"
-path="res://.godot/imported/Floor.gltf-26d839cfd0737abce9d5dc4315393fcc.scn"
+uid="uid://cx2eo7fmxro2y"
+path="res://.godot/imported/PlayerAvatar.glb-49246af58795c5e6879d303f37977451.scn"
 
 [deps]
 
-source_file="res://Assets/Models/KayKit_Prototype_Bits_1.1_FREE/Assets/gltf/Floor.gltf"
-dest_files=["res://.godot/imported/Floor.gltf-26d839cfd0737abce9d5dc4315393fcc.scn"]
+source_file="res://Assets/Models/Custom/PlayerAvatar.glb"
+dest_files=["res://.godot/imported/PlayerAvatar.glb-49246af58795c5e6879d303f37977451.scn"]
 
 [params]
 
@@ -37,14 +37,6 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"nodes": {
-"PATH:Floor": {
-"generate/physics": true,
-"physics/mask": 0,
-"physics/shape_type": 1
-}
-}
-}
+_subresources={}
 gltf/naming_version=2
 gltf/embedded_image_handling=1

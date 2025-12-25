@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://su35ou6f7kgd"]
+
+[ext_resource type="PackedScene" uid="uid://byrhdfend7mql" path="res://Assets/Models/Custom/NodeEntity.glb" id="1_r8fi1"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_crnbi"]
+height = 1.2243042
+radius = 0.46728516
+
+[node name="NodeEntity" type="StaticBody3D"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Model" parent="." instance=ExtResource("1_r8fi1")]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6151972, 0)
+shape = SubResource("CylinderShape3D_crnbi")

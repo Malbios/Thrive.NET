@@ -1,13 +1,69 @@
-[gd_scene load_steps=2 format=3 uid="uid://o2cwumbg1567"]
+[gd_scene load_steps=10 format=3 uid="uid://o2cwumbg1567"]
 
 [ext_resource type="MeshLibrary" uid="uid://cjj51k1mi7x2k" path="res://Resources/floor-tiles.tres" id="1_uyabe"]
+[ext_resource type="MeshLibrary" uid="uid://dx1smkrf46lvr" path="res://Resources/wall-tiles.tres" id="2_r65im"]
+[ext_resource type="PackedScene" uid="uid://bprbulr1y3ol" path="res://Scenes/Characters/test-character.tscn" id="3_3glt3"]
+[ext_resource type="Script" uid="uid://bq3mj3w6vmsb1" path="res://Scripts/Camera.cs" id="4_lq5fx"]
+[ext_resource type="PackedScene" uid="uid://su35ou6f7kgd" path="res://Scenes/Entities/node_entity.tscn" id="4_tlen3"]
+[ext_resource type="PackedScene" uid="uid://dkuey445203ho" path="res://Scenes/Entities/player_avatar.tscn" id="5_lq5fx"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lq5fx"]
+sky_top_color = Color(0.061600007, 0.28, 0.19263999, 1)
+sky_horizon_color = Color(0.061600007, 0.28, 0.19263999, 1)
+ground_bottom_color = Color(0.061600007, 0.28, 0.19263999, 1)
+ground_horizon_color = Color(0.061600007, 0.28, 0.19263999, 1)
+
+[sub_resource type="Sky" id="Sky_6m3f7"]
+sky_material = SubResource("ProceduralSkyMaterial_lq5fx")
+
+[sub_resource type="Environment" id="Environment_k8j5d"]
+background_mode = 1
+background_color = Color(0.0658, 0.08558665, 0.14, 1)
+sky = SubResource("Sky_6m3f7")
 
 [node name="NodeBattle" type="Node3D"]
 
-[node name="Floor" type="GridMap" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_k8j5d")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.45157444, 0.7945828, -0.40585548, -0.33735907, 0.573163, 0.7467752, 0.8259961, -0.20030549, 0.52688557, -6.9283075, 15.853625, 0)
+shadow_enabled = true
+shadow_opacity = 0.8
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="Floor" type="GridMap" parent="Environment"]
 mesh_library = ExtResource("1_uyabe")
-cell_size = Vector3(2, 1, 2)
+cell_size = Vector3(4, 1, 4)
 cell_center_y = false
+collision_mask = 0
 data = {
-"cells": PackedInt32Array(0, 0, 1048576, 0, 1, 1048576, 0, 65534, 1048576, 0, 65535, 1048576, 3, 65533, 1048576, 3, 65532, 1048576, 65533, 2, 1048576, 65533, 65532, 1048576, 65533, 65534, 1048576, 65533, 65533, 1048576, 65533, 65535, 1048576, 65533, 1, 1048576, 65533, 0, 1048576, 3, 3, 1048576, 3, 2, 1048576, 3, 1, 1048576, 3, 0, 1048576, 3, 65535, 1048576, 3, 65534, 1048576, 0, 2, 1048576, 0, 65532, 1048576, 0, 65533, 1048576, 65533, 3, 1048576, 0, 3, 1048576, 65534, 3, 1048576, 65535, 3, 1048576, 2, 3, 1048576, 1, 3, 1048576, 65534, 65532, 1048576, 65535, 65532, 1048576, 1, 65532, 1048576, 2, 65532, 1048576)
+"cells": PackedInt32Array(0, 0, 1048576, 0, 1, 1048576, 0, 65534, 1048576, 0, 65535, 1048576, 3, 65533, 1048576, 3, 65532, 1048576, 65533, 2, 1048576, 65533, 65532, 1048576, 65533, 65534, 1048576, 65533, 65533, 1048576, 65533, 65535, 1048576, 65533, 1, 1048576, 65533, 0, 1048576, 3, 3, 1048576, 3, 2, 1048576, 3, 1, 1048576, 3, 0, 1048576, 3, 65535, 1048576, 3, 65534, 1048576, 0, 65532, 1048576, 0, 65533, 1048576, 65533, 3, 1048576, 0, 3, 1441792, 65534, 65532, 1048576, 65535, 65532, 1048576, 1, 65532, 1048576, 2, 65532, 1048576, 0, 2, 1441792, 65534, 3, 1441792, 65535, 3, 1441792, 1, 3, 1441792, 2, 3, 1441792, 65535, 4, 1441792, 0, 4, 1441792, 1, 4, 1441792, 65535, 65531, 1441792, 0, 65531, 1441792, 1, 65531, 1441792)
 }
+
+[node name="Walls" type="GridMap" parent="Environment"]
+mesh_library = ExtResource("2_r65im")
+cell_size = Vector3(4, 4, 4)
+cell_center_y = false
+collision_mask = 0
+data = {
+"cells": PackedInt32Array(2, 4, 1441795, 3, 4, 1441795, 4, 4, 1441795, 4, 3, 1441795, 4, 2, 1441795, 4, 1, 1441795, 4, 0, 1441795, 4, 65535, 1441795, 4, 65534, 1441795, 4, 65533, 1441795, 4, 65532, 1441795, 4, 65531, 1441795, 3, 65531, 1441795, 2, 65530, 1441795, 2, 65531, 1441795, 1, 65530, 1441795, 0, 65530, 1441795, 65535, 65530, 1441795, 65534, 65530, 1441795, 65534, 65531, 1441795, 65533, 65531, 1441795, 65532, 65531, 1441795, 65532, 65532, 1441795, 65532, 65533, 1441795, 65532, 65534, 1441795, 65532, 65535, 1441795, 65532, 0, 1441795, 65532, 1, 1441795, 65532, 2, 1441795, 65532, 3, 1441795, 65532, 4, 1441795, 65533, 4, 1441795, 65534, 4, 1441795, 65535, 5, 1441795, 65534, 5, 1441795, 0, 5, 1441795, 1, 5, 1441795, 2, 5, 1441795, 65535, 2, 1441795, 65535, 1, 1441795, 65535, 0, 1441795, 65535, 65535, 1441795, 65534, 65535, 1441795, 65534, 65534, 1441795, 65534, 65533, 1441795, 65535, 65533, 1441795, 65535, 65534, 1441795, 65534, 0, 1441795, 65534, 1, 1441795, 65534, 2, 1441795, 2, 2, 1441795, 2, 1, 1441795, 2, 0, 1441795, 2, 65535, 1441795, 2, 65534, 1441795, 2, 65533, 1441795, 1, 65533, 1441795, 1, 65534, 1441795, 1, 65535, 1441795, 1, 0, 1441795, 1, 1, 1441795, 1, 2, 1441795)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="TestCharacter" parent="." instance=ExtResource("3_3glt3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9772482, 0.33962917, 1.8504982)
+
+[node name="Camera" type="Node3D" parent="TestCharacter"]
+transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 4, 2)
+
+[node name="Camera3D" type="Camera3D" parent="TestCharacter/Camera" node_paths=PackedStringArray("_pivot")]
+script = ExtResource("4_lq5fx")
+_pivot = NodePath("..")
+
+[node name="NodeEntity" parent="." instance=ExtResource("4_tlen3")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 2.0050454, 0, -18.004744)
+
+[node name="PlayerAvatar" parent="." instance=ExtResource("5_lq5fx")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 1.9869969, 0, 18.00192)

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dp4wwr2f0amy2"
-path="res://.godot/imported/Floor.gltf-26d839cfd0737abce9d5dc4315393fcc.scn"
+uid="uid://byrhdfend7mql"
+path="res://.godot/imported/NodeEntity.glb-4f272fac684d6d40c6f28a119cb61da1.scn"
 
 [deps]
 
-source_file="res://Assets/Models/KayKit_Prototype_Bits_1.1_FREE/Assets/gltf/Floor.gltf"
-dest_files=["res://.godot/imported/Floor.gltf-26d839cfd0737abce9d5dc4315393fcc.scn"]
+source_file="res://Assets/Models/Custom/NodeEntity.glb"
+dest_files=["res://.godot/imported/NodeEntity.glb-4f272fac684d6d40c6f28a119cb61da1.scn"]
 
 [params]
 
@@ -39,8 +39,8 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "nodes": {
-"PATH:Floor": {
-"generate/physics": true,
+"PATH:hexagon": {
+"physics/layer": 4,
 "physics/mask": 0,
 "physics/shape_type": 1
 }

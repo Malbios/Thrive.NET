@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkuey445203ho"]
+
+[ext_resource type="PackedScene" uid="uid://cx2eo7fmxro2y" path="res://Assets/Models/Custom/PlayerAvatar.glb" id="1_e00ry"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ed7uc"]
+height = 1.3046875
+radius = 0.32226563
+
+[node name="PlayerAvatar" type="StaticBody3D"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Model" parent="." instance=ExtResource("1_e00ry")]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6484375, 0)
+shape = SubResource("CylinderShape3D_ed7uc")
