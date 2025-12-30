@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://d1depjvk4nshy"]
+[gd_scene load_steps=13 format=4 uid="uid://d1depjvk4nshy"]
 
 [ext_resource type="Material" uid="uid://dxhmrq5x0cvi0" path="res://Resources/not_so_shiny_material.tres" id="2_x7rvd"]
 
@@ -141,9 +141,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_nrgh3")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_f7ij1"]
-size = Vector3(4, 4, 4)
-
 [node name="WallTiles" type="Node3D"]
 
 [node name="Cube_Prototype_Large_A" type="MeshInstance3D" parent="."]
@@ -187,5 +184,4 @@ skeleton = NodePath("")
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor_Prototype/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 0.99988997, -0.014834755, 0, 0.014834755, 0.99988997, 0, 2.0376854, 0)
-shape = SubResource("BoxShape3D_f7ij1")
+shape = SubResource("ConvexPolygonShape3D_nknfg")

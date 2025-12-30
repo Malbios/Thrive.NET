@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvnc7a73eoac0"]
+
+[ext_resource type="PackedScene" uid="uid://bom50jhc3qyvf" path="res://Assets/Models/Custom/PlayerAvatar.glb" id="1_dgkk7"]
+[ext_resource type="Script" uid="uid://cl8trochtvyxw" path="res://Scripts/Characters/PlayerAvatar.cs" id="1_fjyjx"]
+[ext_resource type="Script" uid="uid://ccl5f1l1x5jww" path="res://Scripts/Characters/StateMachine.cs" id="3_3jkmj"]
+[ext_resource type="Script" uid="uid://dn4g86pex2lfa" path="res://Scripts/Characters/IdleState.cs" id="4_nrdyt"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fjyjx"]
+height = 1.3046875
+radius = 0.32226563
+
+[node name="PlayerAvatar" type="CharacterBody3D" node_paths=PackedStringArray("StateMachine")]
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("1_fjyjx")
+StateMachine = NodePath("StateMachine")
+
+[node name="Model" parent="." instance=ExtResource("1_dgkk7")]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6484375, 0)
+shape = SubResource("CylinderShape3D_fjyjx")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("_currentState", "_states")]
+script = ExtResource("3_3jkmj")
+_currentState = NodePath("IdleState")
+_states = [NodePath("IdleState")]
+
+[node name="IdleState" type="Node" parent="StateMachine"]
+script = ExtResource("4_nrdyt")

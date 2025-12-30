@@ -3,7 +3,7 @@ using Thrive.Common;
 
 namespace Thrive.Characters;
 
-public partial class TestCharacter : Character
+public partial class PlayerAvatar : Character
 {
 	public override void _Input(InputEvent @event)
 	{

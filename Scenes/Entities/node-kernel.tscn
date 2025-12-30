@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://su35ou6f7kgd"]
 
-[ext_resource type="PackedScene" uid="uid://byrhdfend7mql" path="res://Assets/Models/Custom/NodeEntity.glb" id="1_r8fi1"]
+[ext_resource type="PackedScene" uid="uid://cbiuq5850cnu" path="res://Assets/Models/Custom/NodeKernel.glb" id="1_r8fi1"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_crnbi"]
 height = 1.2243042
 radius = 0.46728516
 
-[node name="NodeEntity" type="StaticBody3D"]
-collision_layer = 2
+[node name="NodeKernel" type="StaticBody3D"]
+collision_layer = 4
 collision_mask = 0
 
 [node name="Model" parent="." instance=ExtResource("1_r8fi1")]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bubumuivbqx6p"]
+
+[ext_resource type="PackedScene" uid="uid://tpn3n44dl2er" path="res://Assets/Models/Custom/CountermeasurePacket.glb" id="1_sd6j3"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6jhfe"]
+height = 0.021850586
+radius = 0.1508789
+
+[node name="CountermeasurePacket" type="CharacterBody3D"]
+
+[node name="Model" parent="." instance=ExtResource("1_sd6j3")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.009460449, 0)
+shape = SubResource("CylinderShape3D_6jhfe")

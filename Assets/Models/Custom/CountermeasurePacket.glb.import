@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://byrhdfend7mql"
-path="res://.godot/imported/NodeEntity.glb-4f272fac684d6d40c6f28a119cb61da1.scn"
+uid="uid://tpn3n44dl2er"
+path="res://.godot/imported/CountermeasurePacket.glb-8e9e0ec5f7294c176cb60f9ace91c030.scn"
 
 [deps]
 
-source_file="res://Assets/Models/Custom/NodeEntity.glb"
-dest_files=["res://.godot/imported/NodeEntity.glb-4f272fac684d6d40c6f28a119cb61da1.scn"]
+source_file="res://Assets/Models/Custom/CountermeasurePacket.glb"
+dest_files=["res://.godot/imported/CountermeasurePacket.glb-8e9e0ec5f7294c176cb60f9ace91c030.scn"]
 
 [params]
 
@@ -37,14 +37,6 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"nodes": {
-"PATH:hexagon": {
-"physics/layer": 4,
-"physics/mask": 0,
-"physics/shape_type": 1
-}
-}
-}
+_subresources={}
 gltf/naming_version=2
 gltf/embedded_image_handling=1
