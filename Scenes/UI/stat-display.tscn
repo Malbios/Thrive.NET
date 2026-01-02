@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbex7etrxk2ff"]
+
+[ext_resource type="Script" uid="uid://er3vh14v0ugm" path="res://Scripts/UI/StatDisplay.cs" id="1_02wvc"]
+[ext_resource type="FontFile" uid="uid://djalfkbp54kdt" path="res://Assets/Fonts/RifficFree-Bold.ttf" id="2_d8no7"]
+
+[node name="StatDisplay" type="HBoxContainer" node_paths=PackedStringArray("_nameLabel", "_valueLabel")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+script = ExtResource("1_02wvc")
+_nameLabel = NodePath("Name")
+_valueLabel = NodePath("Value")
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_d8no7")
+theme_override_font_sizes/font_size = 32
+text = "Placeholder:"
+
+[node name="Value" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_d8no7")
+theme_override_font_sizes/font_size = 32
+text = "100"

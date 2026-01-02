@@ -12,10 +12,9 @@ public partial class StatResource : Resource
 	public event Action OnZero;
 	
 	[Export] public Stat Type { get; private set; }
-	
+
 	[Export] public float MaxValue { get; private set; }
 	
-	[Export]
 	public float Value
 	{
 		get => _value;

@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://kd0dbfac2hn5"]
+
+[ext_resource type="Script" uid="uid://dc80h5xcjhdrd" path="res://Scripts/UI/PlayerStats.cs" id="1_u5qnl"]
+[ext_resource type="PackedScene" uid="uid://bbex7etrxk2ff" path="res://Scenes/UI/stat-display.tscn" id="2_u5qnl"]
+
+[node name="PlayerStats" type="Control" node_paths=PackedStringArray("_healthDisplay")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u5qnl")
+_healthDisplay = NodePath("AvatarIntegrity")
+
+[node name="AvatarIntegrity" parent="." instance=ExtResource("2_u5qnl")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+StatName = "Avatar Integrity"

@@ -1,15 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://bubumuivbqx6p"]
+[gd_scene load_steps=7 format=3 uid="uid://bubumuivbqx6p"]
 
+[ext_resource type="Script" uid="uid://q040ea8xywgu" path="res://Scripts/Characters/Enemies/CountermeasurePacket.cs" id="1_0rhwy"]
 [ext_resource type="PackedScene" uid="uid://tpn3n44dl2er" path="res://Assets/Models/Custom/CountermeasurePacket.glb" id="1_sd6j3"]
+[ext_resource type="Script" uid="uid://ccl5f1l1x5jww" path="res://Scripts/Characters/StateMachine.cs" id="3_tp01f"]
+[ext_resource type="Script" uid="uid://cda72klsdn01a" path="res://Scripts/Characters/ChaseState.cs" id="4_0rhwy"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_6jhfe"]
 height = 0.021850586
 radius = 0.1508789
 
-[node name="CountermeasurePacket" type="CharacterBody3D"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0rhwy"]
+height = 0.030326843
+radius = 0.15722656
+
+[node name="CountermeasurePacket" type="CharacterBody3D" node_paths=PackedStringArray("_hitbox", "StateMachine")]
+collision_layer = 4
+collision_mask = 15
+script = ExtResource("1_0rhwy")
+_hitbox = NodePath("Hitbox")
+_damage = 5.0
+MoveSpeed = 2.0
+StateMachine = NodePath("StateMachine")
 
 [node name="Model" parent="." instance=ExtResource("1_sd6j3")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.009460449, 0)
 shape = SubResource("CylinderShape3D_6jhfe")
+
+[node name="Hitbox" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0150642395, 0)
+shape = SubResource("CylinderShape3D_0rhwy")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("CurrentState", "_states")]
+script = ExtResource("3_tp01f")
+CurrentState = NodePath("ChaseState")
+_states = [NodePath("ChaseState")]
+
+[node name="ChaseState" type="Node" parent="StateMachine"]
+script = ExtResource("4_0rhwy")

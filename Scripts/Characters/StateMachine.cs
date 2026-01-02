@@ -7,7 +7,7 @@ namespace Thrive.Characters;
 public partial class StateMachine : Node
 {
 	[Export]
-	private CharacterState _currentState;
+	public CharacterState CurrentState;
 
 	[Export]
 	private CharacterState[] _states;
@@ -16,23 +16,23 @@ public partial class StateMachine : Node
 	{
 		base._Ready();
 		
-		_currentState.Notification(Constants.NOTIFICATION_STATE_ENABLE);
+		CurrentState.Notification(Constants.NOTIFICATION_STATE_ENABLE);
 	}
 
 	public bool IsInState<T>() where T : CharacterState
 	{
-		return _currentState is T;
+		return CurrentState is T;
 	}
 
 	public void SwitchState<T>() where T : CharacterState
 	{
-		if (_currentState is T) { return; }
+		if (CurrentState is T) { return; }
 		
 		var newState = _states.FirstOrDefault(x => x is T);
 		if (newState == null) { return; }
 
-		_currentState.Notification(Constants.NOTIFICATION_STATE_DISABLE);
-		_currentState = newState;
-		_currentState.Notification(Constants.NOTIFICATION_STATE_ENABLE);
+		CurrentState.Notification(Constants.NOTIFICATION_STATE_DISABLE);
+		CurrentState = newState;
+		CurrentState.Notification(Constants.NOTIFICATION_STATE_ENABLE);
 	}
 }

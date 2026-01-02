@@ -1,10 +1,20 @@
 using Godot;
 using Thrive.Common;
+using Thrive.Resources;
 
 namespace Thrive.Characters;
 
 public partial class PlayerAvatar : Character
 {
+	[Export] public StatResource Health = new();
+
+	public override void _Ready()
+	{
+		base._Ready();
+
+		Health.Value = Health.MaxValue;
+	}
+
 	public override void _Input(InputEvent @event)
 	{
 		base._Input(@event);

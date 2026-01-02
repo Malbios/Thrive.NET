@@ -1,11 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://o2cwumbg1567"]
+[gd_scene load_steps=12 format=3 uid="uid://o2cwumbg1567"]
 
 [ext_resource type="MeshLibrary" uid="uid://cjj51k1mi7x2k" path="res://Resources/floor-tiles.tres" id="1_uyabe"]
 [ext_resource type="MeshLibrary" uid="uid://dx1smkrf46lvr" path="res://Resources/wall-tiles.tres" id="2_r65im"]
 [ext_resource type="PackedScene" uid="uid://cvnc7a73eoac0" path="res://Scenes/Characters/player-avatar.tscn" id="4_6m3f7"]
 [ext_resource type="PackedScene" uid="uid://cje4vusr2ftlf" path="res://Scenes/Entities/node-spawner.tscn" id="4_k8j5d"]
-[ext_resource type="Script" uid="uid://bq3mj3w6vmsb1" path="res://Scripts/Camera.cs" id="4_lq5fx"]
+[ext_resource type="Script" uid="uid://dly105iutp1xt" path="res://Scripts/Camera.cs" id="4_lq5fx"]
 [ext_resource type="PackedScene" uid="uid://su35ou6f7kgd" path="res://Scenes/Entities/node-kernel.tscn" id="4_tlen3"]
+[ext_resource type="PackedScene" uid="uid://bubumuivbqx6p" path="res://Scenes/Entities/countermeasure-packet.tscn" id="5_6m3f7"]
+[ext_resource type="PackedScene" uid="uid://kd0dbfac2hn5" path="res://Scenes/UI/player-stats.tscn" id="8_k8j5d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lq5fx"]
 sky_top_color = Color(0.061600007, 0.28, 0.19263999, 1)
@@ -23,15 +25,25 @@ sky = SubResource("Sky_6m3f7")
 
 [node name="NodeBattle" type="Node3D"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_k8j5d")
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.4515744, 0.79458284, -0.4058555, -0.33735904, 0.57316303, 0.7467751, 0.825996, -0.20030549, 0.52688545, 0, 30, 0)
-shadow_enabled = true
-shadow_opacity = 0.8
+[node name="PlayerStats" parent="UI" node_paths=PackedStringArray("_player") instance=ExtResource("8_k8j5d")]
+layout_mode = 1
+_player = NodePath("../../PlayerAvatar")
 
 [node name="Environment" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = SubResource("Environment_k8j5d")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(0.45157441, 0.79458284, -0.4058555, -0.33735907, 0.57316303, 0.7467751, 0.82599604, -0.20030549, 0.52688545, 0, 30, 0)
+shadow_enabled = true
+shadow_opacity = 0.8
 
 [node name="Floor" type="GridMap" parent="Environment"]
 mesh_library = ExtResource("1_uyabe")
@@ -53,30 +65,40 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="NodeKernel" parent="." instance=ExtResource("4_tlen3")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 2, 0, 2)
-
-[node name="Spawners" type="Node3D" parent="."]
-
-[node name="NodeSpawner1" parent="Spawners" instance=ExtResource("4_k8j5d")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -14, 0.5, 2)
-
-[node name="NodeSpawner2" parent="Spawners" instance=ExtResource("4_k8j5d")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 2, 0.5, -14)
-
-[node name="NodeSpawner3" parent="Spawners" instance=ExtResource("4_k8j5d")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 18, 0.5, 2)
-
 [node name="PlayerAvatar" parent="." instance=ExtResource("4_6m3f7")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 2, 0.5228095, 18)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2, 0.5228095, 18)
 
 [node name="CameraPivot" type="Node3D" parent="PlayerAvatar"]
-transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 3, 1)
+transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 0, 0)
 
-[node name="Camera3D" type="Camera3D" parent="PlayerAvatar/CameraPivot" node_paths=PackedStringArray("_pivot")]
+[node name="Camera3D" type="Camera3D" parent="PlayerAvatar/CameraPivot" node_paths=PackedStringArray("_pivot", "_orbitingTarget")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 script = ExtResource("4_lq5fx")
-_zoomSpeed = 0.5
-_minDistance = -1.0
-_maxDistance = 5.0
 _pivot = NodePath("..")
+_orbitingTarget = NodePath("../..")
+
+[node name="Entities" type="Node3D" parent="."]
+
+[node name="NodeKernel" parent="Entities" instance=ExtResource("4_tlen3")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 2, 0, 2)
+
+[node name="NodeSpawner1" parent="Entities" instance=ExtResource("4_k8j5d")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -14, 0.5, 2)
+
+[node name="CountermeasurePacket1" parent="Entities/NodeSpawner1" node_paths=PackedStringArray("_target") instance=ExtResource("5_6m3f7")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.010500908, 0.0013059676, -0.0007631779)
+_target = NodePath("../../../PlayerAvatar")
+
+[node name="NodeSpawner2" parent="Entities" instance=ExtResource("4_k8j5d")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2, 0.5, -14)
+
+[node name="CountermeasurePacket2" parent="Entities/NodeSpawner2" node_paths=PackedStringArray("_target") instance=ExtResource("5_6m3f7")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.023012161, 0.0013059676, 0.019338131)
+_target = NodePath("../../../PlayerAvatar")
+
+[node name="NodeSpawner3" parent="Entities" instance=ExtResource("4_k8j5d")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 18, 0.5, 2)
+
+[node name="CountermeasurePacket3" parent="Entities/NodeSpawner3" node_paths=PackedStringArray("_target") instance=ExtResource("5_6m3f7")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.005660057, 0.0013059676, -0.041941643)
+_target = NodePath("../../../PlayerAvatar")
