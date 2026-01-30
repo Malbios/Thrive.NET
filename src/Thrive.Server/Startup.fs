@@ -25,7 +25,7 @@ let main args =
     builder.Services.AddBoleroRemoting<BookService>() |> ignore
     builder.Services.AddBoleroComponents() |> ignore
 #if DEBUG
-    builder.Services.AddHotReload(templateDir = __SOURCE_DIRECTORY__ + "/../Thrive.NET.Client") |> ignore
+    builder.Services.AddHotReload(templateDir = __SOURCE_DIRECTORY__ + "/../Thrive.Client") |> ignore
 #endif
 
     let app = builder.Build()
